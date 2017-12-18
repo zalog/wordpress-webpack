@@ -120,6 +120,7 @@ Vagrant.configure("2") do |config|
       # wp db reset --yes && wp db import /vagrant/.data/db.sql
       # wp option update siteurl $WP_URL
       # wp option update home $WP_URL
+      # wp rewrite flush
       # wp user create $WP_USER $WP_EMAIL --role=administrator --user_pass=$WP_PASS
       # wp plugin install advanced-custom-fields cmb2 tiny-compress-images wordpress-seo yet-another-related-posts-plugin youtube-live-stream-auto-embed --activate
       wp user update 1 --show_admin_bar_front=false --rich_editing=false

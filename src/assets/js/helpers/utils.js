@@ -32,7 +32,8 @@ function jumpToAnchor(event) {
   let $this = $(this),
     $body = $('body'),
     id = $this.data("target") || $this.attr("href") || false,
-    target = (id) ? Math.round( $(id).offset().top ) - (56+20) : 0;
+    $id = $(id),
+    target = ($id.length) ? Math.round( $id.offset().top ) : 0;
 
   $body.animate(
     { scrollTop: target },

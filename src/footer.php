@@ -6,7 +6,7 @@
 ?>
 </div></div>
 
-<footer class="site-footer bg-inverse"><div class="container-fluid">
+<footer class="site-footer"><div class="container-fluid">
 
     <?php if ( has_nav_menu( 'footer' ) ) :
         wp_nav_menu( array(

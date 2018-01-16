@@ -106,13 +106,21 @@ svg { fill: currentColor; }
   }
   .children { flex-basis: 100%; }
 
-  > .comment {
+  > .comment,
+  > .pingback {
     padding: map-get($spacers, 4) 0;
     &:not(:last-child) { border-bottom: 1px solid $hr-border-color; }
+  }
+
+  > .comment {
     .comment {
       padding-top: $spacer;
       &:not(:last-child) { padding-bottom: $spacer; }
     }
+  }
+
+  > .pingback {
+    .edit-link::before { content: "|"; padding: 0 map-get($spacers, 1); }
   }
 }
 

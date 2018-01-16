@@ -160,15 +160,15 @@ function zablog_comment_form( $defaults ) {
         '</fieldset>';
     $defaults['fields'] = array(
         'author' => '<div class="row">' .
-            '<fieldset class="form-group col-xs-12 col-sm-4">' .
+            '<fieldset class="form-group col-12 col-sm-4">' .
                 '<label for="author" class="sr-only">' . __('Name') . ( $req ? ' *' : '' ) . '</label>' .
                 '<input type="text" id="author" name="author" value="' . esc_attr( $commenter['comment_author'] ) . '" placeholder="' . __('Name') . ( $req ? '*' : '' ) . '" size="30" maxlength="245" class="form-control"' . $html_req . '>' .
             '</fieldset>',
-        'email' => '<fieldset class="form-group col-xs-12 col-sm-4">' .
+        'email' => '<fieldset class="form-group col-12 col-sm-4">' .
                 '<label for="email" class="sr-only">' . __('Email') . ( $req ? ' *' : '' ) . '</label>' .
                 '<input type="email" id="email" name="email" value="' . esc_attr( $commenter['comment_author_email'] ) . '" placeholder="' . __('Email') . ( $req ? '*' : '' ) . '" size="30" maxlength="100" class="form-control" aria-describedby="email-notes"' . $html_req . '>' .
             '</fieldset>',
-        'url' => '<fieldset class="form-group col-xs-12 col-sm-4">' .
+        'url' => '<fieldset class="form-group col-12 col-sm-4">' .
                 '<label for="url" class="sr-only">' . __('Website') . '</label>' .
                 '<input type="url" id="url" name="url" value="' . esc_attr( $commenter['comment_author_url'] ) . '" placeholder="' . __('Website') . '" size="30" maxlength="200" class="form-control">' .
             '</fieldset>' .

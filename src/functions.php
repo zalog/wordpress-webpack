@@ -90,7 +90,7 @@ function zatheme_footer() {
 
     // developer mode
     if ( current_user_can( 'manage_options' ) ) :
-        if ( isset( $_GET['debug'] ) ) : global $template; ?><div class="text-xs-center"><?php echo get_num_queries() . ' / ' . timer_stop( 0, 2 ) . ' / ' . basename( $template ); ?></div><?php endif;
+        if ( isset( $_GET['debug'] ) ) : global $template; ?><div class="text-center"><?php echo get_num_queries() . ' / ' . timer_stop( 0, 2 ) . ' / ' . basename( $template ); ?></div><?php endif;
         ?><div style="position:fixed; left:0; top:50%; z-index:10000; width:14px; height:14px; overflow: hidden; margin-top:-7px; text-align:center; background:#000; color:#FFF; font:11px/14px sans; opacity:.9"><div class="d-none d-xl-block">xl</div><div class="d-none d-lg-block">lg</div><div class="d-none d-md-block">md</div><div class="d-none d-sm-block">sm</div><div class="d-sm-none">xs</div></div><?php
     endif;
 

@@ -7,7 +7,7 @@
 
 <?php get_header(); ?>
 
-    <main class="site-content col-xs-12 col-md-9"><?php while ( have_posts() ) : the_post();
+    <main class="site-content col-12 col-md-9"><?php while ( have_posts() ) : the_post();
 
         get_template_part( 'template-parts/content', 'single' );
 

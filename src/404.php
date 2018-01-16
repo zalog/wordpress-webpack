@@ -7,7 +7,7 @@
 
 <?php get_header(); ?>
 
-    <main class="site-content col-xs-12 col-md-9">
+    <main class="site-content col-12 col-md-9">
 
         <section>
 

@@ -29,27 +29,6 @@ var isVM = (os.userInfo().username == "vagrant") ? true : false,
   dist = 'dist',
   distAssets = dist + '/assets';
 
-var js = [
-  // requirejs
-  'node_modules/requirejs/require.js',
-  // jquery
-  'node_modules/jquery/dist/jquery.js',
-  // bootstrap dependency
-  'node_modules/popper.js/dist/umd/popper.js',
-  // bootstrap
-  'node_modules/bootstrap/js/dist/util.js',
-  'node_modules/bootstrap/js/dist/alert.js',
-  'node_modules/bootstrap/js/dist/collapse.js',
-  'node_modules/bootstrap/js/dist/dropdown.js',
-  // photoSwipe
-  'node_modules/photoswipe/dist/photoswipe.js',
-  'node_modules/photoswipe/dist/photoswipe-ui-default.js',
-  // js-cookie
-  'node_modules/js-cookie/src/js.cookie.js',
-  // app
-  // srcAssets + '/js/app.js'
-];
-
 var author = packageJson.author,
   authorName = author.substring( 0, (author.lastIndexOf("(")-1) ),
   authorUrl = author.substring( (author.lastIndexOf("(")+1), author.lastIndexOf(")") ),

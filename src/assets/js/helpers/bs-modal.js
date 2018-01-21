@@ -2,17 +2,26 @@ import $ from "jquery";
 
 import 'bootstrap/js/dist/modal';
 
-function modalHtml({title, content, footerCall2action, autohide, wrapClasses, classes}) {
+function show({title, content, footerCall2action, autohide, id, classes, classesDialog}) {
+  if (!content) throw new Error("content property is required!");
+
   title = (title) ? `<h5 class="modal-title">${title}</h5>` : '';
   content = (content) ? `<div class="modal-body">${content}</div>` : '';
-  wrapClasses = (wrapClasses) ? ` ${wrapClasses}` : '';
+  id = (id) ? `${id}` : 'modal-0';
   classes = (classes) ? ` ${classes}` : '';
+  classesDialog = (classesDialog) ? ` ${classesDialog}` : '';
+
+  let $getModal = $("#" + id);
+
+  // modal exists
+  if ($getModal.length) {
+    $getModal.modal('hide');
+    return;
+  }
 
   let header = '',
     footer = '',
-    $output = null;
-
-  if (!content) throw new Error("content property it's required!");
+    $modal = null;
 
   if (title) {
     header = `<div class="modal-header">
@@ -27,22 +36,24 @@ function modalHtml({title, content, footerCall2action, autohide, wrapClasses, cl
     </div>`;
   }
 
-  $output = $(`<div class="modal fade${wrapClasses}"><div class="modal-dialog${classes}" role="document"><div class="modal-content">
+  $modal = $(`<div id="${id}" class="modal fade${classes}"><div class="modal-dialog${classesDialog}" role="document"><div class="modal-content">
       ${header}
       ${content}
       ${footer}
     </div></div></div>`)
     .on('hidden.bs.modal', () => {
-      $output.remove();
+      $modal.remove();
     });
 
   if (autohide) {
-    $output.on('shown.bs.modal', () => {
-      window.setTimeout(() => { $output.modal('hide'); }, autohide);
+    $modal.on('shown.bs.modal', () => {
+      window.setTimeout(() => { $modal.modal('hide'); }, autohide);
     });
   }
 
-  return $output;
+  $modal.modal('show');
+
+  return $modal;
 };
 
-export { modalHtml };
+export { show };

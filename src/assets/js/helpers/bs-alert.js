@@ -1,11 +1,11 @@
 import 'bootstrap/js/dist/alert';
 
-function alertHtml({content, hasWrapContent, hasClose, classes}) {
-  if (!content) return;
+function html({content, hasWrapContent, hasClose, classes}) {
+  if (!content) throw new Error("content property is required!");
 
   hasWrapContent = hasWrapContent || false;
   hasClose = hasClose || false;
-  classes = ( classes ) ? ' ' + classes : ' alert-info';
+  classes = (classes) ? ` ${classes}` : ' alert-info';
 
   var wrapContentBegin = '',
     wrapContentEnd = '',
@@ -29,10 +29,10 @@ function alertHtml({content, hasWrapContent, hasClose, classes}) {
   </div>`;
 }
 
-function alertUpdate({$alert, content}) {
-  if (!content) return;
+function update({$alert, content}) {
+  if (!content) throw new Error("content property is required!");
 
   $alert.find('p').text(content);
 }
 
-export { alertHtml, alertUpdate };
+export { html, update };

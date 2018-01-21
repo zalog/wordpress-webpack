@@ -46,7 +46,7 @@ function cookieBar(content) {
   import('./bs-alert').then((alert) => {
     let $body = $('body'),
       alertCookieHtml = () => {
-        return alert.alertHtml({
+        return alert.html({
           content: content,
           hasWrapContent: true,
           hasClose: true,

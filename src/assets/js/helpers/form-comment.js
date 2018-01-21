@@ -2,7 +2,7 @@
 import $ from 'jquery';
 import axios from 'axios';
 
-import { alertHtml, alertUpdate } from './bs-alert';
+import { html, update } from './bs-alert';
 
 
 
@@ -44,7 +44,7 @@ function send({url, $form}) {
       if (!$alert.length)
         appendAlert({$form, message});
       else
-        alertUpdate({$alert, message});
+        update({$alert, message});
 
       if ($btnClose.length) {
         $btnClose.off();
@@ -65,7 +65,7 @@ function send({url, $form}) {
 }
 
 function appendAlert({$form, message}) {
-  let alert = alertHtml({
+  let alert = html({
     content: message,
     classes: 'alert-warning',
     hasClose: true

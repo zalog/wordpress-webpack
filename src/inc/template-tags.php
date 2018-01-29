@@ -188,7 +188,7 @@ function zatheme_search_form( $form ) {
         '<label class="sr-only" for="s">Caută</label>' .
         '<div class="input-group">' .
             '<input value="' . get_search_query() . '" name="s" id="s" placeholder="' . esc_attr( 'Caută&hellip;', 'placeholder' ) . '" class="form-control">' .
-            '<span class="input-group-btn"><button type="submit" class="btn btn-secondary">' . get_the_icon('search') . '</button></span>' .
+            '<span class="input-group-append"><button type="submit" class="btn btn-secondary">' . get_the_icon('search') . '</button></span>' .
         '</div>' .
     '</form>';
 } add_filter('get_search_form', 'zatheme_search_form');

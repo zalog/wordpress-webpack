@@ -72,9 +72,11 @@ function zatheme_header() {
     ?><link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"><?php
 
     // favicon & browser
-    ?><link rel="icon" sizes="192x192" href="<?php echo get_template_directory_uri(); ?>/assets/imgs/icon.png">
-    <link rel="apple-touch-icon" href="<?php echo get_template_directory_uri(); ?>/assets/imgs/apple-touch-icon.png">
-    <meta name="msapplication-square310x310logo" content="<?php echo get_template_directory_uri(); ?>/assets/imgs/ms-largetile.png">
+    ?><link rel="icon" href="<?php echo get_template_directory_uri(); ?>/assets/imgs/favicons/favicon.ico">
+    <link rel="icon" href="<?php echo get_template_directory_uri(); ?>/assets/imgs/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+    <link rel="icon" href="<?php echo get_template_directory_uri(); ?>/assets/imgs/favicons/android-icon-192x192.png" sizes="192x192" type="image/png">
+    <link rel="apple-touch-icon" href="<?php echo get_template_directory_uri(); ?>/assets/imgs/favicons/apple-icon-180x180.png">
+    <meta name="msapplication-square310x310logo" content="<?php echo get_template_directory_uri(); ?>/assets/imgs/favicons/ms-icon-310x310.png">
     <meta name="theme-color" content="#0275d8">
     <meta name="msapplication-navbutton-color" content="#0275d8"><?php
 

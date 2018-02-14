@@ -35,6 +35,7 @@ Vagrant.configure("2") do |config|
       apt-get install curl
       usermod -a -G www-data vagrant
       chown -R vagrant:www-data /vagrant
+      timedatectl set-timezone EET
 
       # apache
       apt-get install -y apache2
@@ -122,8 +123,8 @@ Vagrant.configure("2") do |config|
       # wp option update home $WP_URL
       # wp rewrite flush
       # wp user create $WP_USER $WP_EMAIL --role=administrator --user_pass=$WP_PASS
-      # wp plugin install advanced-custom-fields cmb2 tiny-compress-images wordpress-seo yet-another-related-posts-plugin youtube-live-stream-auto-embed --activate
-      wp user update 1 --show_admin_bar_front=false --rich_editing=false
+      wp user update $WP_USER --show_admin_bar_front=false --rich_editing=false
+      # wp plugin install wordpress-seo yet-another-related-posts-plugin --activate
       ln -sf /vagrant/dist /var/www/html/wp-content/themes/$WP_THEME
       wp theme activate $WP_THEME
     SHELL

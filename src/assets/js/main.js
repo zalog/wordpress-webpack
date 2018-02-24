@@ -14,7 +14,7 @@ if ( process.env.NODE_ENV === "development" )
 /**
  * global vars
  */
-const FbAppId = null,
+const fbAppId = null,
   alertCookieContent = 'Acest site folosește cookie-uri, prin continuarea navigării sunteți de acord cu <a href="#">politica de utilizare a cookie-urilor</a>.';
 
 var $document = $(document);
@@ -85,6 +85,6 @@ $document.ready(() => {
   /**
    * facebook api
    */
-  fbApi(FbAppId);
+  fbApi(fbAppId);
 
 });

@@ -197,6 +197,13 @@ function zatheme_check_referrer() {
 } add_action( 'check_comment_flood', 'zatheme_check_referrer' );
 
 /**
+ * Generic login error
+ */
+add_filter('login_errors', function () {
+    return 'Something is wrong!';
+});
+
+/**
  * Rest comments
  */
 // activate anonymous comments

@@ -68,9 +68,6 @@ function zatheme_script_tag_defer( $tag, $handle ) {
  */
 function zatheme_header() {
 
-    // google font
-    ?><link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"><?php
-
     // favicon & browser
     ?><link rel="icon" href="<?php echo get_template_directory_uri(); ?>/assets/imgs/favicons/favicon.ico">
     <link rel="icon" href="<?php echo get_template_directory_uri(); ?>/assets/imgs/favicons/favicon-32x32.png" sizes="32x32" type="image/png">

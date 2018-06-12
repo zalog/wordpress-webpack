@@ -7,7 +7,7 @@ indent_size = 2
 trim_trailing_whitespace = true
 insert_final_newline = true
 
-[*.{php, html}]
+[*.{php,html}]
 indent_size = 4
 insert_final_newline = false
 

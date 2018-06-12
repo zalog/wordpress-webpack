@@ -11,7 +11,7 @@ import { collapsedTools } from '../helpers/bs-collapse';
  * global vars
  */
 const fbAppId = null,
-  alertCookieContent = 'Acest site folosește cookie-uri, prin continuarea navigării sunteți de acord cu <a href="#">politica de utilizare a cookie-urilor</a>.';
+  alertCookieContent = 'This website uses cookies to ensure you get the best experience on our website. <a href="#">Learn more</a>';
 
 
 

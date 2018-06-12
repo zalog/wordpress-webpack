@@ -2,6 +2,7 @@ require 'json'
 
 settings = JSON.parse(File.read(File.expand_path "./package.json"))
 
+# vars
 DB_NAME = "wordpress"
 DB_PASS = "root"
 WP_URL = "http://localhost"
@@ -15,11 +16,14 @@ WP_THEME = settings['name']
 Vagrant.configure("2") do |config|
   config.vm.box = "bento/ubuntu-16.04"
 
+  # apache port
   config.vm.network "forwarded_port", guest: 80, host: 8080
 
+  # browsersync port
   config.vm.network "forwarded_port", guest: 3000, host: 3000, auto_correct: true
   config.vm.network "forwarded_port", guest: 3001, host: 3001, auto_correct: true
 
+  # directories
   config.vm.synced_folder ".", "/vagrant", disabled: true
   config.vm.synced_folder "./src", "/vagrant/src"
   config.vm.synced_folder "./.build", "/vagrant/.build"
@@ -117,15 +121,17 @@ Vagrant.configure("2") do |config|
       wp core install --url=$WP_URL --title=$WP_THEME --admin_user=$WP_USER --admin_password=$WP_PASS --admin_email=$WP_EMAIL
       rm -rf /var/www/html/wp-content/plugins && ln -sf /vagrant/.data/plugins /var/www/html/wp-content
       rm -rf /var/www/html/wp-content/uploads && ln -sf /vagrant/.data/uploads /var/www/html/wp-content
-      # wordpress imports
-      # wp db reset --yes && wp db import /vagrant/.data/db.sql
-      # wp option update siteurl $WP_URL
-      # wp option update home $WP_URL
-      # wp rewrite flush
-      # wp user create $WP_USER $WP_EMAIL --role=administrator --user_pass=$WP_PASS
+      wp rewrite structure '/%postname%/'
       wp user update $WP_USER --show_admin_bar_front=false --rich_editing=false
-      # wp plugin install wordpress-seo yet-another-related-posts-plugin --activate
       ln -sf /vagrant/dist /var/www/html/wp-content/themes/$WP_THEME
       wp theme activate $WP_THEME
+      # menu
+      wp menu create "main"
+      wp menu item add-custom main Home "#"
+      wp menu item add-post main 2
+      wp menu location assign main main
+      # vm dynamic WP_SITEURL set
+      sed -i '/<?php/a\/** vm port set */\\nif ($_SERVER['SERVER_PORT'] != 80) { $wp_siteurl = "http://" . $_SERVER[SERVER_NAME] . ":" . $_SERVER[SERVER_PORT]; define( 'WP_HOME', $wp_siteurl ); define( 'WP_SITEURL', $wp_siteurl ); }\\n' /var/www/html/wp-config.php
+      wp rewrite flush
     SHELL
 end

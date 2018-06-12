@@ -44,7 +44,7 @@
                 'depth'           => 2,
                 'container'       => false,
                 'menu_class'      => 'nav navbar-nav',
-                'walker'          => new bs4navwalker()
+                'walker'          => new WP_Bootstrap_Navwalker()
             ) );
         ?></div>
 

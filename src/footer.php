@@ -14,7 +14,7 @@
             'depth'           => 1,
             'container'       => 'ul',
             'menu_class'      => 'nav justify-content-center',
-            'walker'          => new bs4navwalker()
+            'walker'          => new WP_Bootstrap_Navwalker()
         ) ); ?>
         <hr>
     <?php endif; ?>

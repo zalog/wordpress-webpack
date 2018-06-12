@@ -129,7 +129,7 @@ require get_template_directory() . '/inc/rest.php';
 /**
  * Register custom navigation walker
  */
-require get_template_directory() . '/inc/nav-walker.php';
+require get_template_directory() . '/inc/nav-walker-bs.php';
 
 /**
  * Register custom comment walker

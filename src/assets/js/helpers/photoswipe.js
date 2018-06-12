@@ -47,7 +47,7 @@ function open(event) {
   }
 
   let $parentGallery = $a.closest('.gallery'),
-    $parentEntry = $a.closest('.entry-content'),
+    $parentEntry = $(event.delegateTarget),
     $parent = ( $parentGallery.length ) ? $parentGallery : $parentEntry,
     $pictures = $parent.find('a'),
     photoswipeEl = () => {
@@ -73,6 +73,7 @@ function open(event) {
         title = $a.closest('figure').find('figcaption').html();
       photoswipeItems.push({src: href, w: size[0], h: size[1], title: title});
     });
+  if (photoswipeItems.length === 0) throw new Error('photoswipeItems property must not be empty!');
 
   // populate photoswipeOptions
   photoswipeOptions.index = $pictures.index($a);

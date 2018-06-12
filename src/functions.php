@@ -122,6 +122,11 @@ function zatheme_archive_title ( $title ) {
 } add_filter( 'get_the_archive_title', 'zatheme_archive_title' );
 
 /**
+ * Rest api
+ */
+require get_template_directory() . '/inc/rest.php';
+
+/**
  * Register custom navigation walker
  */
 require get_template_directory() . '/inc/nav-walker.php';
@@ -202,17 +207,6 @@ function zatheme_check_referrer() {
 add_filter('login_errors', function () {
     return 'Something is wrong!';
 });
-
-/**
- * Rest comments
- */
-// activate anonymous comments
-add_filter( 'rest_allow_anonymous_comments', '__return_true' );
-// update cookies
-function zatheme_rest_insert_comment($comment, $request) {
-    $user = wp_get_current_user();
-    do_action( 'set_comment_cookies', $comment, $user );
-} add_action( 'rest_insert_comment', 'zatheme_rest_insert_comment', 10, 3 );
 
 /**
  * Admin branding

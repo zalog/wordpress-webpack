@@ -43,7 +43,7 @@ function jumpToAnchor(event) {
 
 function cookieBar(content) {
   if (Cookies.get('civicCookieControl')) return;
-  import('./bs-alert').then((alert) => {
+  import('./bs-alert' /* webpackChunkName: "bs-alert" */).then((alert) => {
     let $body = $('body'),
       alertCookieHtml = () => {
         return alert.html({

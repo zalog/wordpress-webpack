@@ -33,7 +33,7 @@ collapsedTools([$collapsingNavbar, $collapsingSearch]);
 $('.entry-content').on('click', 'a', (event) => {
   event.preventDefault();
 
-  import('../helpers/photoswipe').then((photoswipe) => {
+  import('../helpers/photoswipe' /* webpackChunkName: "photoswipe" */).then((photoswipe) => {
     photoswipe.open(event);
   });
 });
@@ -46,7 +46,7 @@ if ($commentForm.length) {
   $commentForm.on('submit', (event) => {
     event.preventDefault();
 
-    import('../helpers/form-comment').then((comment) => {
+    import('../helpers/form-comment' /* webpackChunkName: "form-comment" */).then((comment) => {
       let url = '/wp-json/wp/v2/comments/',
         $form = $(event.currentTarget);
 

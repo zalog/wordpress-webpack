@@ -12,6 +12,12 @@ These instructions will get you a copy of the project up and running on your loc
 - [vagrant](https://www.vagrantup.com/) and [virtualbox](https://www.virtualbox.org/)
 - [EditorConfig](https://editorconfig.org/) for using the same indenting rules
 
+#### Exposed vagrant ports
+
+In the creating/configuring process of your virtual machine, vagrant will check if this default ports, on your host machine, are free: 2222(ssh), 8080(apache), 3000(BrowserSync) or 3001(BrowserSync), if not will change that accordingly.
+To see what ports are exposed to you, run `vagrant port`.
+In the rest of the readme file we will use the default ports.
+
 ### Installing
 
 - `git clone` this repo
@@ -26,7 +32,7 @@ These instructions will get you a copy of the project up and running on your loc
 All the action happens in the vagrant vm, so you'll have to ssh that.
 The build gulp tasks are not to generating anything on the host machine under our repo working space, to keep our IDEs, git and focus, clear from some unwanted generated files.
 
-- `vagrant ssh` ssh to vagrant vm
+- `vagrant ssh` ssh to vagrant vm. You can also acces that with WinSCP u: vagrant, p: vagrant, port: 2222
 
   - run `npm run start` for the default task in gulp that is a develompent mode list of tasks ('dev', 'serve' and 'watch'). The tasks from here are written with speed in mind, so in this pipes there will be not tasks that take time like uglify/minify, autoprefixer and so on.
     - go to [localhost:3000](http://localhost:3000/) for BrowserSync

@@ -17,7 +17,7 @@ Vagrant.configure("2") do |config|
   config.vm.box = "bento/ubuntu-16.04"
 
   # apache port
-  config.vm.network "forwarded_port", guest: 80, host: 8080
+  config.vm.network "forwarded_port", guest: 80, host: 8080, auto_correct: true
 
   # browsersync port
   config.vm.network "forwarded_port", guest: 3000, host: 3000, auto_correct: true

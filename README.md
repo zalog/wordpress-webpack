@@ -53,6 +53,38 @@ So please keep in mind that the files from `/src` are compiled&copied only if yo
 - `npm run build`
 - `gulp watch`
 
+## File structure
+
+```bash
+.
+├── .build                      # build automation scripts (for now, just webpack configuration)
+├── .data                       # plugins and uploads: from guest to host linked directory
+├── src
+|   ├── assets
+|   │   ├── css                 # files that needs to be css
+|   │   ├── imgs                # images like favicon
+|   |   ├── js
+|   |   |   ├── app             # app modules
+|   |   |   ├── helpers         # some helper modules
+|   |   |   └── main.js         # javascript entry point
+|   |   ├── scss
+|   |   |   ├── compile.scss    # scss style entry point
+|   |   |   ├── style.scss      # main style file
+|   |   |   ├── variables.scss  # all scss variables
+|   |   |   └── vendors.scss    # vendors to overwrite or some other custom vendors to import
+|   |   └── svg
+|   |       ├── icons           # svg icons that will compile to a svg sprite
+|   |       └── *.svg           # other svg files that stays the same
+|   ├── inc                     # some wp related custom includes
+|   ├── template-pages          # wp custom template pages
+|   ├── template-parts          # used in loops
+|   └── *.*                     # wp theme related like index.php, single.php, functions.php, etc
+├── .editorconfig               # please use an IDE that supports EditorConfig, we need to use the same indentation :)
+├── Vagrantfile                 # vagrant provision recipe file
+├── gulpfile.js                 # other build automation scripts, gulp ones (to do: needs to be in the same place, `.build`)
+└── package.json                # Node.js settings, dependencies, eslintConfig, etc
+```
+
 ## Built With
 
 There are a lot of hours given to the community, thanks guys, keep up the good work:
